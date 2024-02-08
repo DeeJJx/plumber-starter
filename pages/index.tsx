@@ -12,7 +12,7 @@ function transformUser(userDoc: WithId<Document> | null): UserDB | null {
   }
 
   // Extract the relevant properties from the user document
-  const { name, telephone, addressOne, addressTwo } = userDoc;
+  const { name, telephone, addressOne, addressTwo, twitter, facebook, instagram } = userDoc;
 
   // Return a new object with the extracted properties
   return {
@@ -20,6 +20,9 @@ function transformUser(userDoc: WithId<Document> | null): UserDB | null {
     telephone,
     addressOne,
     addressTwo,
+    twitter,
+    facebook,
+    instagram
     // Add other properties as needed
   };
 }
@@ -53,6 +56,9 @@ type UserDB = {
   telephone: string;
   addressOne: string;
   addressTwo: string;
+  twitter: string;
+  facebook: string;
+  instagram: string;
   // Add other properties as needed
 };
 

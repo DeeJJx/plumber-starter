@@ -17,6 +17,9 @@ export default function User({ user }) {
             <li>{user.telephone}</li>
             <li>{user.address}</li>
             <li>{user.postcode}</li>
+            <li>{user.facebook}</li>
+            <li>{user.twitter}</li>
+            <li>{user.instagram}</li>
           </ul>
           {/* Add other user information as needed */}
         </div>
@@ -56,3 +59,5 @@ export async function getStaticProps({}) {
     };
   }
 }
+
+//npm run dev
