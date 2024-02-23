@@ -31,23 +31,24 @@ export default function User({ user }: UserProps) {
   const values = Object.values(user);
   const titleText = `${user.name} Landscaping`
   return (
-    <div>
+    <>
       <Head>
-        <title>{titleText}</title>
+        <title>{'Plumber Template'}</title>
       </Head>
-      <h1>User Profile</h1>
-      <ul>
-        {values.map((value, index) => {
-          // Check if the value is not null
-          if (value !== null) {
-            return (
-              <li key={index}>{value}</li>
-            );
-          }
-          return null; // Skip null values
-        })}
-      </ul>
-    </div>
+      <div className="plumber-template">
+        <div className="contact-header">
+          <div className="contact-details">
+            <div className="contact-telephone">{user.telephone}</div>
+            <div className="contact-address">{user.addressOne} {user.addressTwo}</div>
+          </div>
+          <div className="header-socials">
+            <div className="Twitter">{user.twitter}</div>
+            <div className="Faceebook">{user.facebook}</div>
+            <div className="Instagram">{user.instagram}</div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
