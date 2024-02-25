@@ -1,0 +1,27 @@
+.plumber-template {
+    .contact-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 95%;
+      margin: 0 auto;
+      border-bottom: 1px solid #d4d4d45b;
+      padding: 5px;
+  
+      .contact-details {
+        display: flex;
+        .contact-telephone,
+        .contact-address {
+          margin-bottom: 5px;
+        }
+      }
+  
+      .header-socials {
+        display: flex;
+  
+        div {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
