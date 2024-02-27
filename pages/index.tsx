@@ -1,6 +1,11 @@
 import { ObjectId, WithId, Document } from "mongodb";
 import clientPromise from "../lib/mongodb";
 import Head from "next/head";
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import plumber1Image from '../public/images/plumber-1.jpg';
+
 
 type UserProps = {
   user: UserDB; // Assuming userObject is the expected type
@@ -38,14 +43,23 @@ export default function User({ user }: UserProps) {
       <div className="plumber-template">
         <div className="contact-header">
           <div className="contact-details">
-            <div className="contact-telephone">{user.telephone}</div>
-            <div className="contact-address">{user.addressOne} {user.addressTwo}</div>
+            <div className="contact-telephone"><FontAwesomeIcon icon={faPhone} />{user.telephone}</div>
+            <div className="contact-address"><FontAwesomeIcon icon={faLocationDot} />{user.addressOne} {user.addressTwo}</div>
           </div>
+          <div className="company-name">[Company Name]</div>
           <div className="header-socials">
             <div className="Twitter">{user.twitter}</div>
             <div className="Faceebook">{user.facebook}</div>
             <div className="Instagram">{user.instagram}</div>
           </div>
+        </div>
+        <div className="hero">
+          <div className="hero-text">
+            <h3>Professional Plumbing Services</h3>
+            <p>Welcome to [Company Name], your go-to destination for top-notch plumbing services. With years of experience, we are dedicated to providing high-quality plumbing solutions for residential and commercial clients.
+               Our skilled team of plumbers is here to address all your plumbing needs with professionalism and efficiency</p>
+          </div>
+          <div className="hero-image"><Image src={plumber1Image} alt='plumber'/></div>
         </div>
       </div>
     </>

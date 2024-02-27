@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap');
+
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
 .plumber-template {
     .contact-header {
       display: flex;
@@ -7,12 +13,19 @@
       margin: 0 auto;
       border-bottom: 1px solid #d4d4d45b;
       padding: 5px;
+      font-size: 20px;
+
+      svg {
+        margin-right: 8px;
+        color: #3083ff;
+      }
   
       .contact-details {
         display: flex;
         .contact-telephone,
         .contact-address {
           margin-bottom: 5px;
+          margin-right: 10px;
         }
       }
   
@@ -21,6 +34,39 @@
   
         div {
           margin-left: 10px;
+        }
+      }
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 50px;
+      
+      .hero-text {
+        flex: 1;
+        text-align: left;
+
+        h3 {
+          font-size: 30px;
+          color: #3083ff;
+        }
+
+        p {
+          font-size: 20px;
+        }
+      }
+      .hero-image{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          max-width: 70%;
+          height: auto;
+          border-radius: 10px;
         }
       }
     }
