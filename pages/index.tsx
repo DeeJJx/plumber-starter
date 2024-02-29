@@ -4,8 +4,12 @@ import Head from "next/head";
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import plumber1Image from '../public/images/plumber-1.jpg';
 import plumber2Image from '../public/images/plumber-2.jpg';
+import leakImage from '../public/images/sink-leak.jpg';
+import blockImage from '../public/images/blocked-drain.jpg';
+import boilerImage from '../public/images/boiler-maintenance.jpg'
 
 
 type UserProps = {
@@ -49,14 +53,14 @@ export default function User({ user }: UserProps) {
           </div>
           <div className="company-name">[Company Name]</div>
           <div className="header-socials">
-            <div className="Twitter">{user.twitter}</div>
-            <div className="Faceebook">{user.facebook}</div>
-            <div className="Instagram">{user.instagram}</div>
+            <div className="Twitter"><FontAwesomeIcon icon={faTwitter} />{user.twitter}</div>
+            <div className="Faceebook"><FontAwesomeIcon icon={faFacebook} />{user.facebook}</div>
+            <div className="Instagram"><FontAwesomeIcon icon={faInstagram} />{user.instagram}</div>
           </div>
         </div>
         <div className="hero">
           <div className="hero-text">
-            <h3>Professional Plumbing Services</h3>
+            <h3>Professional Plumbing</h3>
             <p>Welcome to [Company Name], your go-to destination for top-notch plumbing services. With years of experience, we are dedicated to providing high-quality plumbing solutions for residential and commercial clients.
                Our skilled team of plumbers is here to address all your plumbing needs with professionalism and efficiency.</p>
           </div>
@@ -73,7 +77,29 @@ export default function User({ user }: UserProps) {
           </div>
           <div className="phone">
             <div className="symbol"><FontAwesomeIcon icon={faPhone} /></div>
-            <div className="text"><p className="title">Phone:</p><p>07496454598</p></div>
+            <div className="text"><p className="title">Phone:</p><p>07496454598</p></div> {/*import user phone number*/}
+          </div>
+        </div>
+        <div className="services">
+          <div className="services-text">
+            <h4>Our Services</h4>
+            <p>At [Company Name], we offer a comprehensive range of plumbing services to ensure your property's plumbing system is in top condition. 
+              From leak repairs, pipe installations, and boiler maintenance to bathroom and kitchen remodeling, our skilled team is committed to delivering reliable and professional plumbing solutions. 
+              Trust us to keep your home or business running smoothly.</p>
+          </div>
+          <div className="services-cards">
+            <div className="card">
+              <Image src={leakImage} alt="leak"/>
+              <p>Leak Repairs</p>
+            </div>
+            <div className="card">
+              <Image src={blockImage} alt="block"/>
+              <p>Drain Unblocking</p>
+            </div>
+            <div className="card">
+              <Image src={boilerImage} alt="boiler"/>
+              <p>Boiler Maintenance</p>
+            </div>
           </div>
         </div>
       </div>
