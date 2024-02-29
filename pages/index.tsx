@@ -3,8 +3,9 @@ import clientPromise from "../lib/mongodb";
 import Head from "next/head";
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import plumber1Image from '../public/images/plumber-1.jpg';
+import plumber2Image from '../public/images/plumber-2.jpg';
 
 
 type UserProps = {
@@ -57,9 +58,23 @@ export default function User({ user }: UserProps) {
           <div className="hero-text">
             <h3>Professional Plumbing Services</h3>
             <p>Welcome to [Company Name], your go-to destination for top-notch plumbing services. With years of experience, we are dedicated to providing high-quality plumbing solutions for residential and commercial clients.
-               Our skilled team of plumbers is here to address all your plumbing needs with professionalism and efficiency</p>
+               Our skilled team of plumbers is here to address all your plumbing needs with professionalism and efficiency.</p>
           </div>
-          <div className="hero-image"><Image src={plumber1Image} alt='plumber'/></div>
+          <div className="hero-image"><Image src={plumber2Image} alt='plumber'/></div>
+        </div>
+        <div className="contact-box">
+          <div className="location">
+            <div className="symbol"><FontAwesomeIcon icon={faLocationDot} /></div>
+            <div className="text"><p className="title">Area:</p><p>{user.addressOne} {user.addressTwo}</p></div>
+          </div>
+          <div className="email">
+            <div className="symbol"><FontAwesomeIcon icon={faEnvelope} /></div>
+            <div className="text"><p className="title">Email:</p><p>Company Email</p></div>
+          </div>
+          <div className="phone">
+            <div className="symbol"><FontAwesomeIcon icon={faPhone} /></div>
+            <div className="text"><p className="title">Phone:</p><p>07496454598</p></div>
+          </div>
         </div>
       </div>
     </>

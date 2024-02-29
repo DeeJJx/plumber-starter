@@ -5,6 +5,10 @@ body {
 }
 
 .plumber-template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
     .contact-header {
       display: flex;
       justify-content: space-between;
@@ -43,30 +47,69 @@ body {
       align-items: center;
       justify-content: center;
       margin: 50px;
-      
+      max-width: 1268px;
+
       .hero-text {
         flex: 1;
         text-align: left;
+        margin: 0 30px 0 30px;
 
         h3 {
-          font-size: 30px;
+          font-size: 45px;
           color: #3083ff;
         }
 
         p {
-          font-size: 20px;
+          font-size: 30px;
         }
       }
-      .hero-image{
+      .hero-image {
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
 
         img {
-          max-width: 70%;
-          height: auto;
+          max-height: 80vh;
+          width: auto;
           border-radius: 10px;
+        }
+      }
+    }
+
+
+    .contact-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border: 2px solid #d4d4d45b;
+      box-shadow: 2px 2px 5px #d4d4d45b;
+      border-radius: 7px;
+      max-width: 1268px;
+      min-width: 50vw;
+    
+
+      > div {
+        display: flex;
+        align-items: center;
+
+        .symbol {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #3083ff;
+          font-size: 30px;
+          margin: 0 20px 0 20px;
+          background-color: #e7e6e649;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+        }
+
+        .title {
+          color: #3083ff;
+          font-weight: 700;
         }
       }
     }
