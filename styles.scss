@@ -175,4 +175,83 @@ body {
         }  
       }
     }
+
+    .contact-us {
+      text-align: left;
+      margin: 40px;
+
+      .contact-form-container {
+        display:flex;
+        align-items: stretch;
+        justify-content: center;
+        margin: 0 100px;
+        box-shadow: 0 0 5px #d4d4d4;
+        border-radius: 20px;
+
+        .contact-text {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          padding: 50px;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+          
+          h4 {
+            font-size: 40px;
+            color: #3083ff;
+          }
+
+          p {
+            font-size: 20px;
+          }
+        }
+
+        .contact-form {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          justify-content: center;
+          align-items: left;
+          padding: 50px;
+          background-color: #3083ff;
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+
+          label {
+            color: white;
+            font-size: 20px;
+            display: block;
+          }
+
+          input[type="text"],
+          input[type="email"],
+          textarea {
+            width: 90%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Outfit', sans-serif;
+          }
+
+          textarea {
+            resize: none;
+            height: 150px
+          }
+
+          button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #3083ff;
+            background-color: white;
+            border: 3px solid #2b008f;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 50px;
+          }
+        }
+      }  
+    }
   }

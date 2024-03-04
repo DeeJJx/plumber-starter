@@ -102,6 +102,44 @@ export default function User({ user }: UserProps) {
             </div>
           </div>
         </div>
+        <div className="contact-us">
+          <div className="contact-form-container">
+            <div className="contact-text">
+              <h4>Get in touch</h4>
+              <p>Ready to schedule a plumbing service or have a question for us? Reach out to our experienced team today. We're here to assist you with all your plumbing needs. 
+                Fill out the form, and we'll get back to you as soon as possible.</p>
+            </div>
+            <form className="contact-form">
+              <div>
+                <label htmlFor="name">Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="message">Message:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                />
+              </div>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );
