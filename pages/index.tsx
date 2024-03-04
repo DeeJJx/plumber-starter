@@ -136,7 +136,7 @@ export default function User({ user }: UserProps) {
                   required
                 />
               </div>
-              <button type="submit">Send Message</button>
+              <button type="submit">Send</button>
             </form>
           </div>
         </div>
