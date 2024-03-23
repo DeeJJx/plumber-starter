@@ -9,7 +9,8 @@ import plumber1Image from '../public/images/plumber-1.jpg';
 import plumber2Image from '../public/images/plumber-2.jpg';
 import leakImage from '../public/images/sink-leak.jpg';
 import blockImage from '../public/images/blocked-drain.jpg';
-import boilerImage from '../public/images/boiler-maintenance.jpg'
+import boilerImage from '../public/images/boiler-maintenance.jpg';
+import { useState } from 'react';
 
 
 type UserProps = {
@@ -39,7 +40,43 @@ function transformUser(userDoc: WithId<Document> | null): UserDB | null {
 
 export default function User({ user }: UserProps) {
   const values = Object.values(user);
-  const titleText = `${user.name} Landscaping`
+  const titleText = `${user.name} Plumbing`
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        console.log('Form submitted successfully!');
+      } else {
+        console.error('Form submission failed.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
   return (
     <>
       <Head>
@@ -109,13 +146,15 @@ export default function User({ user }: UserProps) {
               <p>Ready to schedule a plumbing service or have a question for us? Reach out to our experienced team today. We're here to assist you with all your plumbing needs. 
                 Fill out the form, and we'll get back to you as soon as possible.</p>
             </div>
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name">Name:</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -125,6 +164,8 @@ export default function User({ user }: UserProps) {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -133,6 +174,8 @@ export default function User({ user }: UserProps) {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                 />
               </div>
