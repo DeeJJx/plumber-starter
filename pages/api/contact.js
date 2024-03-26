@@ -9,8 +9,8 @@ export default async function handler(req, res) {
       port: 587,
       secure: false,
       auth: {
-        user: 'twennyCommunication@gmail.com', //add email and password to .env file and pull through as const - email and pw will be hidden - do same on main twenny site too
-        pass: 'jdzkodkprlonwvdq'
+        user: process.env.TWENNY_EMAIL, //add email and password to .env file and pull through as const - email and pw will be hidden - do same on main twenny site too
+        pass: process.env.TWENNY_PASS
       }
     });
 
