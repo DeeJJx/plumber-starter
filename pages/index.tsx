@@ -47,8 +47,8 @@ export default function User({ user }: UserProps) {
     message: ''
   });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     
     try {
       const response = await fetch('/api/contact', {
@@ -69,8 +69,8 @@ export default function User({ user }: UserProps) {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target as HTMLInputElement | HTMLTextAreaElement;
     setFormData(prevState => ({
       ...prevState,
       [name]: value
