@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import plumber1Image from '../public/images/plumber-1.jpg';
 import plumber2Image from '../public/images/plumber-2.jpg';
 import leakImage from '../public/images/sink-leak.jpg';
 import blockImage from '../public/images/blocked-drain.jpg';
@@ -23,19 +22,37 @@ function transformUser(userDoc: WithId<Document> | null): UserDB | null {
   }
 
   // Extract the relevant properties from the user document
-  const { name, telephone, addressOne, addressTwo, twitter, facebook, instagram } = userDoc;
-
-  // Return a new object with the extracted properties
-  return {
+  const {
+    email,
     name,
     telephone,
     addressOne,
     addressTwo,
     twitter,
     facebook,
-    instagram
-    // Add other properties as needed
+    instagram,
+    skillsDescription,
+    skillsList,
+    intro,
+    companyName
+  } = userDoc;
+
+  // Return a new object with the extracted properties
+  return {
+    email,
+    name,
+    telephone,
+    addressOne,
+    addressTwo,
+    twitter,
+    facebook,
+    instagram,
+    skillsDescription,
+    skillsList,
+    intro,
+    companyName
   };
+
 }
 
 export default function User({ user }: UserProps) {
@@ -80,7 +97,7 @@ export default function User({ user }: UserProps) {
   return (
     <>
       <Head>
-        <title>{'Plumber Template'}</title>
+        <title>{user.name}</title>
       </Head>
       <div className="plumber-template">
         <div className="contact-header">
@@ -88,7 +105,7 @@ export default function User({ user }: UserProps) {
             <div className="contact-telephone"><FontAwesomeIcon icon={faPhone} />{user.telephone}</div>
             <div className="contact-address"><FontAwesomeIcon icon={faLocationDot} />{user.addressOne} {user.addressTwo}</div>
           </div>
-          <div className="company-name">[Company Name]</div>
+          <div className="company-name">{user.name} Plumbing</div>
           <div className="header-socials">
             <div className="Twitter"><FontAwesomeIcon icon={faTwitter} />{user.twitter}</div>
             <div className="Faceebook"><FontAwesomeIcon icon={faFacebook} />{user.facebook}</div>
@@ -98,7 +115,7 @@ export default function User({ user }: UserProps) {
         <div className="hero">
           <div className="hero-text">
             <h3>Professional Plumbing</h3>
-            <p>Welcome to [Company Name], your go-to destination for top-notch plumbing services. With years of experience, we are dedicated to providing high-quality plumbing solutions for residential and commercial clients.
+            <p>Welcome to {user.companyName}, your go-to destination for top-notch plumbing services. With years of experience, we are dedicated to providing high-quality plumbing solutions for residential and commercial clients.
                Our skilled team of plumbers is here to address all your plumbing needs with professionalism and efficiency.</p>
           </div>
           <div className="hero-image"><Image src={plumber2Image} alt='plumber'/></div>
@@ -110,17 +127,17 @@ export default function User({ user }: UserProps) {
           </div>
           <div className="email">
             <div className="symbol"><FontAwesomeIcon icon={faEnvelope} /></div>
-            <div className="text"><p className="title">Email:</p><p>Company Email</p></div>
+            <div className="text"><p className="title">Email:</p><p>{user.email}</p></div>
           </div>
           <div className="phone">
             <div className="symbol"><FontAwesomeIcon icon={faPhone} /></div>
-            <div className="text"><p className="title">Phone:</p><p>07496454598</p></div> {/*import user phone number*/}
+            <div className="text"><p className="title">Phone:</p><p>{user.telephone}</p></div>
           </div>
         </div>
         <div className="services">
           <div className="services-text">
             <h4>Our Services</h4>
-            <p>At [Company Name], we offer a comprehensive range of plumbing services to ensure your property's plumbing system is in top condition. 
+            <p>At {user.companyName}, we offer a comprehensive range of plumbing services to ensure your property's plumbing system is in top condition. 
               From leak repairs, pipe installations, and boiler maintenance to bathroom and kitchen remodeling, our skilled team is committed to delivering reliable and professional plumbing solutions. 
               Trust us to keep your home or business running smoothly.</p>
           </div>
@@ -189,6 +206,7 @@ export default function User({ user }: UserProps) {
 }
 
 type UserDB = {
+  email: string;
   name: string;
   telephone: string;
   addressOne: string;
@@ -196,6 +214,10 @@ type UserDB = {
   twitter: string;
   facebook: string;
   instagram: string;
+  skillsDescription: string;
+  skillsList: Array<string>;
+  intro: string;
+  companyName: string;
   // Add other properties as needed
 };
 

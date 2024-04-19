@@ -10,6 +10,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "embla-carousel-react": "^8.0.2",
     "install": "^0.13.0",
     "mongodb": "^4.17.1",
     "next": "latest",
