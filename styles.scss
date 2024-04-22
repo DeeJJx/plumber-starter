@@ -25,6 +25,7 @@ body {
       }
       @media screen and (max-width: 768px) {
         justify-content: center;
+        padding: 20px 0;
       }
 
       svg {
@@ -244,6 +245,9 @@ body {
           padding: 50px;
           border-top-left-radius: 20px;
           border-bottom-left-radius: 20px;
+          @media screen and (max-width: 768px) {
+            padding: 20px;
+          }
           
           h4 {
             font-size: 40px;
@@ -274,6 +278,7 @@ body {
           @media screen and (max-width: 768px) {
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
+            padding: 20px;
           }
 
           label {
