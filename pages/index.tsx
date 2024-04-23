@@ -5,10 +5,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import plumber2Image from '../public/images/plumber-2.jpg';
-import leakImage from '../public/images/sink-leak.jpg';
-import blockImage from '../public/images/blocked-drain.jpg';
-import boilerImage from '../public/images/boiler-maintenance.jpg';
+import plumber2Image from '../public/images/plumber-2.jpg'
 import { useState } from 'react';
 
 
@@ -112,26 +109,28 @@ export default function User({ user }: UserProps) {
             <div className="Instagram"><FontAwesomeIcon icon={faInstagram} />{user.instagram}</div>
           </div>
         </div>
-        <div className="hero">
-          <div className="hero-text">
-            <h3>Professional Plumbing</h3>
-            <p>Welcome to {user.companyName}, your go-to destination for top-notch plumbing services. With years of experience, we are dedicated to providing high-quality plumbing solutions for residential and commercial clients.
-               Our skilled team of plumbers is here to address all your plumbing needs with professionalism and efficiency.</p>
+        <div className="hero-container">
+          <div className="hero">
+            <div className="hero-text">
+              <h3>Professional Plumbing</h3>
+              <p>Welcome to {user.companyName}, your go-to destination for top-notch plumbing services. With years of experience, we are dedicated to providing high-quality plumbing solutions for residential and commercial clients.
+                Our skilled team of plumbers is here to address all your plumbing needs with professionalism and efficiency.</p>
+            </div>
+            <div className="hero-image"><Image src={plumber2Image} alt='plumber'/></div>
           </div>
-          <div className="hero-image"><Image src={plumber2Image} alt='plumber'/></div>
-        </div>
-        <div className="contact-box">
-          <div className="location">
-            <div className="symbol"><FontAwesomeIcon icon={faLocationDot} /></div>
-            <div className="text"><p className="title">Area:</p><p>{user.addressOne} {user.addressTwo}</p></div>
-          </div>
-          <div className="email">
-            <div className="symbol"><FontAwesomeIcon icon={faEnvelope} /></div>
-            <div className="text"><p className="title">Email:</p><p>{user.email}</p></div>
-          </div>
-          <div className="phone">
-            <div className="symbol"><FontAwesomeIcon icon={faPhone} /></div>
-            <div className="text"><p className="title">Phone:</p><p>{user.telephone}</p></div>
+          <div className="contact-box">
+            <div className="location">
+              <div className="symbol"><FontAwesomeIcon icon={faLocationDot} /></div>
+              <div className="text"><p className="title">Area:</p><p>{user.addressOne} {user.addressTwo}</p></div>
+            </div>
+            <div className="email">
+              <div className="symbol"><FontAwesomeIcon icon={faEnvelope} /></div>
+              <div className="text"><p className="title">Email:</p><p>{user.email}</p></div>
+            </div>
+            <div className="phone">
+              <div className="symbol"><FontAwesomeIcon icon={faPhone} /></div>
+              <div className="text"><p className="title">Phone:</p><p>{user.telephone}</p></div>
+            </div>
           </div>
         </div>
         <div className="services">
@@ -141,6 +140,7 @@ export default function User({ user }: UserProps) {
               From leak repairs, pipe installations, and boiler maintenance to bathroom and kitchen remodeling, our skilled team is committed to delivering reliable and professional plumbing solutions. 
               Trust us to keep your home or business running smoothly.</p>
           </div>
+          {/*  
           <div className="services-cards">
             <div className="card">
               <Image src={leakImage} alt="leak"/>
@@ -155,6 +155,7 @@ export default function User({ user }: UserProps) {
               <p>Boiler Maintenance</p>
             </div>
           </div>
+          commented out for now, will remove when implementing carousel*/}
         </div>
         <div className="contact-us">
           <div className="contact-form-container">

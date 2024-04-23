@@ -63,52 +63,62 @@ body {
         }
       }
     }
-
-    .hero {
+    .hero-container {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      margin: 40px;
-      max-width: 1268px;
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-      }
-
-      .hero-text {
-        flex: 1;
-        text-align: left;
-        margin: 0 30px 0 30px;
-
-        h3 {
-          font-size: 45px;
-          color: #3083ff;
-          @media screen and (max-width: 768px) {
-            font-size: 20px;
-          }
-        }
-
-        p {
-          font-size: 30px;
-          @media screen and (max-width: 768px) {
-            font-size: 16px;
-          }
-        }
-      }
-      .hero-image {
-        flex: 1;
+      align-items: center;
+      width: 100%;
+      background-image: url('../plumber-starter/public/images/blue-circles.svg');
+      background-size: cover;
+      .hero {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        margin: 40px;
+        max-width: 1268px;
+        background: rgba(255, 255, 255, 0.938);
+        box-shadow: 2px 2px 5px #d4d4d45b;
+        border-radius: 7px;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+        }
 
-        img {
-          max-height: 70vh;
-          width: auto;
-          border-radius: 10px;
-          max-width: 70vw;
+        .hero-text {
+          flex: 1;
+          text-align: left;
+          margin: 0 30px 0 30px;
+
+          h3 {
+            font-size: 45px;
+            color: #3083ff;
+            @media screen and (max-width: 768px) {
+              font-size: 20px;
+            }
+          }
+
+          p {
+            font-size: 30px;
+            @media screen and (max-width: 768px) {
+              font-size: 16px;
+            }
+          }
+        }
+        .hero-image {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            max-height: 70vh;
+            width: auto;
+            border-radius: 10px;
+            max-width: 70vw;
+          }
         }
       }
     }
-
 
     .contact-box {
       display: flex;
@@ -121,6 +131,7 @@ body {
       max-width: 1268px;
       min-width: 50vw;
       margin-bottom: 70px;
+      background: white;
       @media screen and (max-width: 1000px) {
         flex-direction: column;
         max-width: 80vw;
