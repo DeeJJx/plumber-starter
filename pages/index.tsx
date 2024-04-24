@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import plumber2Image from '../public/images/plumber-2.jpg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import AOS from 'aos'; //npm install --save-dev @types/aos - this install got rid of the tsx error for this, might be a similar thing for carousel?
+import 'aos/dist/aos.css';
 
 
 type UserProps = {
@@ -91,10 +93,18 @@ export default function User({ user }: UserProps) {
     }));
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Animation duration
+      easing: 'ease-in-out', // Easing function
+      once: true // Whether to only animate elements once
+    });
+  }, []);
+
   return (
     <>
       <Head>
-        <title>{user.name}</title>
+        <title>{user.companyName}</title>
       </Head>
       <div className="plumber-template">
         <div className="contact-header">
@@ -102,14 +112,14 @@ export default function User({ user }: UserProps) {
             <div className="contact-telephone"><FontAwesomeIcon icon={faPhone} />{user.telephone}</div>
             <div className="contact-address"><FontAwesomeIcon icon={faLocationDot} />{user.addressOne} {user.addressTwo}</div>
           </div>
-          <div className="company-name">{user.name} Plumbing</div>
+          <div className="company-name">{user.companyName}</div>
           <div className="header-socials">
             <div className="Twitter"><FontAwesomeIcon icon={faTwitter} />{user.twitter}</div>
             <div className="Faceebook"><FontAwesomeIcon icon={faFacebook} />{user.facebook}</div>
             <div className="Instagram"><FontAwesomeIcon icon={faInstagram} />{user.instagram}</div>
           </div>
         </div>
-        <div className="hero-container">
+        <div className="hero-container" data-aos="fade-up">
           <div className="hero">
             <div className="hero-text">
               <h3>Professional Plumbing</h3>
@@ -133,7 +143,7 @@ export default function User({ user }: UserProps) {
             </div>
           </div>
         </div>
-        <div className="services">
+        <div className="services" data-aos="fade-up">
           <div className="services-text">
             <h4>Our Services</h4>
             <p>At {user.companyName}, we offer a comprehensive range of plumbing services to ensure your property's plumbing system is in top condition. 
@@ -157,7 +167,7 @@ export default function User({ user }: UserProps) {
           </div>
           commented out for now, will remove when implementing carousel*/}
         </div>
-        <div className="contact-us">
+        <div className="contact-us" data-aos="fade-up">
           <div className="contact-form-container">
             <div className="contact-text">
               <h4>Get in touch</h4>
