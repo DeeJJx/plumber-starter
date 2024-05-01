@@ -9,6 +9,8 @@ import plumber2Image from '../public/images/plumber-2.jpg'
 import { useEffect, useState } from 'react';
 import AOS from 'aos'; //npm install --save-dev @types/aos - this install got rid of the tsx error for this, might be a similar thing for carousel?
 import 'aos/dist/aos.css';
+import  EmblaCarousel  from "../components/EmblaCarousel";
+import { EmblaOptionsType } from 'embla-carousel'
 
 
 type UserProps = {
@@ -101,6 +103,9 @@ export default function User({ user }: UserProps) {
     });
   }, []);
 
+  const OPTIONS: EmblaOptionsType = { loop: true }
+  const SLIDES = user.skillsList
+  
   return (
     <>
       <Head>
@@ -166,6 +171,14 @@ export default function User({ user }: UserProps) {
             </div>
           </div>
           commented out for now, will remove when implementing carousel*/}
+        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+        {user.skillsDescription && 
+        <div className="skills-description-container">
+          <div className="skills-description-text">
+            {user.skillsDescription}
+          </div>
+        </div>
+          }
         </div>
         <div className="contact-us" data-aos="fade-up">
           <div className="contact-form-container">
