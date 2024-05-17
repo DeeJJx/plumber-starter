@@ -155,29 +155,13 @@ export default function User({ user }: UserProps) {
               From leak repairs, pipe installations, and boiler maintenance to bathroom and kitchen remodeling, our skilled team is committed to delivering reliable and professional plumbing solutions. 
               Trust us to keep your home or business running smoothly.</p>
           </div>
-          {/*  
-          <div className="services-cards">
-            <div className="card">
-              <Image src={leakImage} alt="leak"/>
-              <p>Leak Repairs</p>
-            </div>
-            <div className="card">
-              <Image src={blockImage} alt="block"/>
-              <p>Drain Unblocking</p>
-            </div>
-            <div className="card">
-              <Image src={boilerImage} alt="boiler"/>
-              <p>Boiler Maintenance</p>
+          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+          {user.skillsDescription && 
+          <div className="skills-description-container">
+            <div className="skills-description-text">
+              {user.skillsDescription}
             </div>
           </div>
-          commented out for now, will remove when implementing carousel*/}
-        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-        {user.skillsDescription && 
-        <div className="skills-description-container">
-          <div className="skills-description-text">
-            {user.skillsDescription}
-          </div>
-        </div>
           }
         </div>
         <div className="contact-us" data-aos="fade-up">
