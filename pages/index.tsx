@@ -222,7 +222,7 @@ type UserDB = {
   facebook?: string;
   instagram?: string;
   skillsDescription?: string;
-  skillsList: Array<string>;
+  skillsList?: Array<string>;
   intro?: string;
   companyName: string;
   // Add other properties as needed
