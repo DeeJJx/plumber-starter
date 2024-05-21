@@ -28,15 +28,15 @@ function transformUser(userDoc: WithId<Document> | null): UserDB | null {
     name,
     telephone,
     addressOne,
-    addressTwo,
-    twitter,
-    facebook,
-    instagram,
-    skillsDescription,
-    skillsList,
-    intro,
-    companyName
-  } = userDoc;
+    addressTwo = '',
+    twitter = '',
+    facebook = '',
+    instagram = '',
+    skillsDescription = '',
+    skillsList = [],
+    intro = '',
+    companyName = ''
+  } = userDoc; //default optional values to empty string if not provided
 
   // Return a new object with the extracted properties
   return {
@@ -57,8 +57,7 @@ function transformUser(userDoc: WithId<Document> | null): UserDB | null {
 }
 
 export default function User({ user }: UserProps) {
-  const values = Object.values(user);
-  const titleText = `${user.name} Plumbing`
+  const titleText = `${user.name} Plumbing`;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -105,7 +104,7 @@ export default function User({ user }: UserProps) {
 
   const OPTIONS: EmblaOptionsType = { loop: true }
   const SLIDES = user.skillsList
-  
+
   return (
     <>
       <Head>
@@ -119,9 +118,9 @@ export default function User({ user }: UserProps) {
           </div>
           <div className="company-name">{user.companyName}</div>
           <div className="header-socials">
-            <div className="Twitter"><FontAwesomeIcon icon={faTwitter} />{user.twitter}</div>
-            <div className="Faceebook"><FontAwesomeIcon icon={faFacebook} />{user.facebook}</div>
-            <div className="Instagram"><FontAwesomeIcon icon={faInstagram} />{user.instagram}</div>
+            {user.twitter && <div className="Twitter"><FontAwesomeIcon icon={faTwitter} />{user.twitter}</div>} {/* Added conditional rendering for socials incase some aren't provided */}
+            {user.facebook && <div className="Facebook"><FontAwesomeIcon icon={faFacebook} />{user.facebook}</div>}
+            {user.instagram && <div className="Instagram"><FontAwesomeIcon icon={faInstagram} />{user.instagram}</div>}
           </div>
         </div>
         <div className="hero-container" data-aos="fade-up">
@@ -218,15 +217,16 @@ type UserDB = {
   name: string;
   telephone: string;
   addressOne: string;
-  addressTwo: string;
-  twitter: string;
-  facebook: string;
-  instagram: string;
-  skillsDescription: string;
+  addressTwo?: string;
+  twitter?: string;
+  facebook?: string;
+  instagram?: string;
+  skillsDescription?: string;
   skillsList: Array<string>;
-  intro: string;
+  intro?: string;
   companyName: string;
   // Add other properties as needed
+  //Question marks show optional fields - doesn't work for skillsList
 };
 
 export async function getStaticProps({}) {
