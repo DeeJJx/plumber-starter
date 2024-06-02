@@ -217,13 +217,13 @@ type UserDB = {
   name: string;
   telephone: string;
   addressOne: string;
-  addressTwo?: string;
-  twitter?: string;
-  facebook?: string;
-  instagram?: string;
-  skillsDescription?: string;
-  skillsList?: Array<string>;
-  intro?: string;
+  addressTwo: string;
+  twitter: string;
+  facebook: string;
+  instagram: string;
+  skillsDescription: string;
+  skillsList: Array<string>;
+  intro: string;
   companyName: string;
   // Add other properties as needed
   //Question marks show optional fields - doesn't work for skillsList
