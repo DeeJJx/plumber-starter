@@ -208,38 +208,7 @@ body {
         align-items: center;
         justify-content: center;
     }
-      .services-cards {
-        display: none; //turned off for now, will delete when carousel sorted
-        flex-direction: row;
-        justify-content: space-between;
-
-        .card {
-          text-align: center;
-          margin: 0 30px 20px 20px;
-          background-color: white;
-          border-radius: 10px;
-          border: 1px solid #ffffff;
-          overflow: hidden;
-          transition: transform 0.3s ease-in-out;
-
-          &:hover {
-            transform: scale(1.1);
-          }
-
-          img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 10px;
-          }
-
-          p {
-            font-size: 20px;
-            color: #3083ff;
-            margin: 30px 0;
-          }
-        }  
-      }
-    }
+  }
 
     .contact-us {
       text-align: left;

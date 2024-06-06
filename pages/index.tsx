@@ -11,7 +11,7 @@ import AOS from 'aos'; //npm install --save-dev @types/aos - this install got ri
 import 'aos/dist/aos.css';
 import  EmblaCarousel  from "../components/EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
-
+import imgAndSkill from '../public/imgAndSkill';
 
 type UserProps = {
   user: UserDB; // Assuming userObject is the expected type
@@ -53,7 +53,16 @@ function transformUser(userDoc: WithId<Document> | null): UserDB | null {
     intro,
     companyName
   };
+}
 
+interface ImgAndSkill {
+  smallImgUrl: string;
+  skill: string;
+}
+
+interface SkillAndImg {
+  skill: string;
+  smallImgUrl: string;
 }
 
 export default function User({ user }: UserProps) {
@@ -103,7 +112,16 @@ export default function User({ user }: UserProps) {
   }, []);
 
   const OPTIONS: EmblaOptionsType = { loop: true }
-  const SLIDES = user.skillsList
+  let skillAndImg: SkillAndImg[] = [];
+  user.skillsList.forEach(skill => {
+    let match = imgAndSkill.find(item => item.skill === skill);
+    if (match) {
+      skillAndImg.push({ skill: skill, smallImgUrl: match.smallImgUrl });
+    }
+  });
+
+
+  const SLIDES = skillAndImg;
 
   return (
     <>
