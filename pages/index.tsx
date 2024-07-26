@@ -120,7 +120,7 @@ export default function User({ user }: UserProps) {
     }
   });
 
-
+  // console.log(skillAndImg, 'SKILL AND IMG')
   const SLIDES = skillAndImg;
 
   return (
